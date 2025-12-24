@@ -1,7 +1,11 @@
 import app from "./app.js";
+import dotenv from "dotenv";
+import connectDB from "./config/mongo.config.js";
+dotenv.config();
 
-const PORT = 5000;
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+    connectDB();
+    console.log(`Server running on port ${PORT}`);
 });
